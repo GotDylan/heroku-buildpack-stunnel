@@ -18,5 +18,5 @@ function package_download() {
 
   mkdir -p $location
   package="https://${S3_BUCKET}.s3.amazonaws.com/$engine-$version.tar.gz"
-  curl $package -s -o - | tar xzf - -C $location
+  curl $package -s -o - | tar xvf - -C $location
 }
