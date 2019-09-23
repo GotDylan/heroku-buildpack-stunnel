@@ -11,7 +11,7 @@ set -e
 unset GIT_DIR
 
 # config
-STUNNEL_VERSION="5.00"
+STUNNEL_VERSION="5.55"
 S3_BUCKET="gregburek-buildpack-pgbouncer"
 
 # parse and derive params
@@ -47,7 +47,7 @@ cat >>$BUILD_DIR/.profile.d/start-stunnel.sh <<'EOF'
 #!/usr/bin/env bash
 
 echo "at=info service=stunnel action=start config=$HOME/conf/stunnel.conf"
-$HOME/vendor/stunnel/bin/stunnel3 $HOME/conf/stunnel.conf &
+$HOME/vendor/stunnel/bin/stunnel $HOME/conf/stunnel.conf &
 EOF
 
 if [ -f $BUILD_DIR/conf/stunnel.conf ]; then
